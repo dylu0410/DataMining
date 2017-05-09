@@ -301,20 +301,6 @@ def main():
 		#print "test ", i, test[i]
 		neighbors= getNeighbors(test[i], train, result[0], result[1], k, approach)
 		predict= getClass(neighbors)
-		#print predict
-		"""
-		predict = ROC(neighbors, k)
-		if predict> 1:
-
-			predictions.append("<=50K")
-		else:
-
-			#print test[i]['class'], predict
-			predictions.append(">50K")
-		#print "predict for test", i, predict
-	
-		correct+= getAccuracy(test[i], predictions[0])
-		"""
 		
 		postterior= float(predict[1])/(1.0* k)
 		predictions.append(predict[0])
@@ -328,9 +314,6 @@ def main():
 	acc_rate= float(correct)/ (1.0*len(test))
 	print "Accuray rate ", acc_rate, "Error rate ", 1- acc_rate
 	confusionMatrix(predictions, actuals)
-	#print "total positive= ", totalPos
-	#print "result: lala", result[0], result[1]
-	#convertData(data, result[0], result[1])
-	#getNeighbors(data, 3, result[0], result[1])
+	
 
 main()
